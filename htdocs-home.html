@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+    <head>
+        <title>HT.Docs - Home</title>
+        <link rel="stylesheet" type="text/css" href="../paginas/estilos/estilo.css">
+
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('scrollToTop').addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth' // Para uma animação suave
+                });
+            });
+        });
+        </script>
+
+    </head>
+    <body>
+        <button id="scrollToTop">Topo</button>
+        <div class="container">
+            <h1>HT.DOCS</h1>
+            <h2>HOME</h2>
+            <p></p>
+            <p>HT.Docs</p>
+
+            <nav>
+              <ul>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                  <a href="../paginas/linux/htdocs-linux.html">Linux</a>
+                  <div class="dropdown-content">
+                    <a href="#">LPIC-1</a>
+                    <a href="#">Shellscript</a>
+                    <a href="#">Serviços</a>
+                  </div>
+                </li>
+                <li class="dropdown">
+                  <a href="../paginas/japones/htdocs-japones.html">Japonês</a>
+                  <div class="dropdown-content">
+                    <a href="#">Hiragana</a>
+                    <a href="#">Katakana</a>
+                    <a href="#">Kanji</a>
+                    <a href="#">Vocabulário</a>
+                    <a href="#">Gramática</a>
+                  </div>
+                </li>
+                <!-- Adicione mais elementos de menu dropdown conforme necessário -->
+                <li class="dropdown">
+                  <a href="../paginas/youtube/htdocs-youtube.html">Youtube</a>
+                  <div class="dropdown-content">
+                    <a href="#">Roteiro</a>
+                    <a href="#">Edição</a>
+                    <a href="#">Áudio</a>
+                    <a href="#">Ferramentas</a>
+                  </div>
+                </li>
+                <li class="dropdown">
+                  <a href="../paginas/portugues/htdocs-portugues.html">Português</a>
+                  <div class="dropdown-content">
+                    <a href="#">Telecurso</a>
+                    <a href="#">Palavras</a>
+                  </div>
+                </li>
+                <li class="dropdown">
+                  <a href="../paginas/matematica/htdocs-matematica.html">Matemática</a>
+                  <div class="dropdown-content">
+                    <a href="#">Telecurso</a>
+                    <a href="#">Fórmulas</a>
+                  </div>
+                </li>
+                <li class="dropdown">
+                  <a href="../paginas/ingles/htdocs-ingles.html">Inglês</a>
+                  <div class="dropdown-content">
+                    <a href="#">Vocabulário</a>
+                    <a href="#">Gramática</a>
+                  </div>
+                </li>
+                <li class="dropdown">
+                  <a href="../paginas/ia/htdocs-ia.html">I.A.</a>
+                  <div class="dropdown-content">
+                    <a href="#">Ferramentas</a>
+                  </div>
+                </li>
+
+              </ul>
+            </nav>
+            <section id="manutencao">
+                <img src="../imagens/manutencao.png">
+            </section>
+
+        </div>
+        <footer>
+            <p>HT.DOCS - Todos os direitos reservados &copy; 2023</p>
+        </footer>
+    </body>
+</html>
