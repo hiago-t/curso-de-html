@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>HT.Docs</title>
+    <link rel="stylesheet" type="text/css" href="estilos/estilo.css">
+  </head>
+  <body>
+    <h1>HT.DOCS</h1>
+    <h2>Home</h2>
+    <ul>
+        <li><a href="#">Home</a></li>
+        <li><a href="linux/htdocs-linux.html">Linux</a></li>
+        <li><a href="#">Japonês</a></li>
+        <li><a href="#">Youtube</a></li>
+        <li><a href="#">Português</a></li>
+        <li><a href="#">Matemática</a></li>
+        <li><a href="#">Inglês</a></li>
+        <li><a href="#">Kanji's</a></li>
+    </ul>
+
+    <p># Arquivo de Configuracao de   Compartilhamento</p>
+    <p># Global #</p>
+    <p>#</p>
+    <p>workgroup=LINUX</p>
+    <p>security=user</p>
+    <p>#</p>
+    <p># Compartilhamentos #</p>
+    <p>[MYSHARE]</p>
+    <p>  comment=</p>
+    <p>  path=/home/share/teste</p>
+    <p>  browseable=yes    # ou no</p>
+    <p>  writeable=yes     # ou no</p>
+    <p>  validusers=@teste # ou nome do usuario</p>
+  </body>
+</html>

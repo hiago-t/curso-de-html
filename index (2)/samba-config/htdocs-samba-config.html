@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Samba</title>
+    <link rel="stylesheet" type="text/css" href="../../estilos/estilo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/styles/shades-of-purple.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.2.0/highlight.min.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        document.getElementById('scrollToTop').addEventListener('click', function() {
+          window.scrollTo({
+            top: 0,
+            behavior: 'smooth' // Para uma animação suave
+          });
+        });
+      });
+    </script>
+
+  </head>
+  <body>
+    <button id="scrollToTop">Topo</button>
+    <div class="container">
+      <h1>HT.DOCS</h1>
+      <h2>Samba</h2>
+      <p></p>
+      <p>HT.Docs > Linux > Samba</p>
+      <p class="mini">09/01/2023</p>
+
+      <!-- <nav>
+        <ul>
+          <li><a href="../htdocs-home.html">Home</a></li>
+          <li><a href="htdocs-linux.html">Linux</a></li>
+          <li><a href="#">Japonês</a></li>
+          <li><a href="#">Youtube</a></li>
+          <li><a href="#">Português</a></li>
+          <li><a href="#">Matemática</a></li>
+          <li><a href="#">Inglês</a></li>
+          <li><a href="#">Kanji's</a></li>
+        </ul>
+      </nav></br> -->
+      <nav>
+        <ul>
+          <li><a href="../htdocs-home.html">Home</a></li>
+          <li class="dropdown">
+            <a href="htdocs-linux.html">Linux</a>
+            <div class="dropdown-content">
+              <a href="#">LPIC-1</a>
+              <a href="#">Shellscript</a>
+              <a href="#">Outros</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Japonês</a>
+            <div class="dropdown-content">
+              <a href="#">Hiragana</a>
+              <a href="#">Katakana</a>
+              <a href="#">Kanji</a>
+              <a href="#">Vocabulário</a>
+              <a href="#">Gramática</a>
+            </div>
+          </li>
+          <!-- Adicione mais elementos de menu dropdown conforme necessário -->
+          <li class="dropdown">
+            <a href="#">Youtube</a>
+            <div class="dropdown-content">
+              <a href="#">Roteiro</a>
+              <a href="#">Edição</a>
+              <a href="#">Áudio</a>
+              <a href="#">Ferramentas</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Português</a>
+            <div class="dropdown-content">
+              <a href="#">Telecurso</a>
+              <a href="#">Palavras</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Matemática</a>
+            <div class="dropdown-content">
+              <a href="#">Telecurso</a>
+              <a href="#">Fórmulas</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">Inglês</a>
+            <div class="dropdown-content">
+              <a href="#">Vocabulário</a>
+              <a href="#">Gramática</a>
+            </div>
+          </li>
+          <li class="dropdown">
+            <a href="#">I.A.</a>
+            <div class="dropdown-content">
+              <a href="#">Ferramentas</a>
+            </div>
+          </li>
+
+        </ul>
+      </nav>
+
+      <pre class="indice">
+        <h2>Indíce</h2>
+        <a href="#sobre-o-samba">1. Para quê serve o serviço Samba?</a>
+        <a href="#instalacao">2. Instalação</a>
+        <a href="#configuracao-basica">3. Configuração básica</a>
+          <a href="#exemplo-de-configuracao">3.1. Exemplo de configuração</a>
+          <a href="#testar-parametros">3.2. Testar Parâmetros do smb.conf</a>
+          <a href="#iniciar-servico">3.3. Iniciar / Parar serviço</a>
+          <a href="#criacao-do-diretorio">3.4. Criação do Diretório Compartilhado</a>
+          <a href="#criacao-do-usuario-linux-e-samba">3.5. Criação de usuário Linux e Samba</a>
+          <a href="#criacao-de-grupo">3.6. Criação de Grupo e Inclusão do Usuário no Grupo</a>
+        <a href="#acesso-ao-compartilhamento">4. Acesso ao Compartilhamento</a>
+          <a href="#acesso-via-ubuntu">4.1. Acesso via Ubuntu</a>
+          <a href="#acesso-via-windows">4.2. Acesso via Windows 10</a>
+          <a href="#mapeamento-do-drive">4.3. Mapeando o Drive</a>
+        <a href="#remocao-samba">5. Remoção do Samba</a>
+        
+      </pre></br>
+
+      <section id="sobre-o-samba">
+        <h3>1. Para quê serve o serviço Samba?</h3>
+        <p>O serviço Samba é uma implementação de software livre do protocolo SMB/CIFS, que permite a interoperabilidade entre sistemas Windows e sistemas não-Windows, como Linux e Unix.</p>
+        <p>Ele é usado principalmente para compartilhar arquivos, pastas e recursos de rede entre diferentes computadores em uma rede local (LAN). O Samba permite que computadores Linux/Unix atuem como servidores de arquivos que podem ser acessados por máquinas Windows, facilitando o compartilhamento de recursos e a comunicação entre diferentes sistemas operacionais em uma rede.</p>
+
+        </p>
+      </section>
+      
+      <section id="instalacao">
+        <h3>2. Instalação</h3>
+        <pre>
+          <code class="console">
+            $ sudo apt update
+            $ sudo apt install samba
+          </code>
+        </pre>
+      </section>
+      </br>
+
+      <section id="configuracao-basica">
+        <h3>3. Configuração básica</h3>
+        <p>arquivo de configuração: <u>/etc/samba/smb.conf</u></p>
+      </section></br>
+      
+      <section id="exemplo-de-configuracao">
+        <h3>3.1. Exemplo de configuração do arquivo smb.conf</h3>
+        <pre>
+          <code class="terminal">
+            <!-- trecho com código de configuraçao de exemplo-->
+            # Arquivo de Configuracao de   Compartilhamento
+            # Global #
+            #
+            workgroup=LINUX
+            security=user
+            #
+            # Compartilhamentos #
+            [MYSHARE]
+              comment=
+              path=/home/share/teste
+              browseable=yes    # ou no
+              writeable=yes     # ou no
+              validusers=@teste # ou nome do usuario
+          </code>
+        </pre>
+      </section>
+
+      <h4>Obs:</h4>
+      <p><u>comment:</u> Comentário descritivo para o compartilhamento.</p>
+      <p><u>path:</u> Caminho do compartilhamento ex: /home/ share/docs</p>
+      <p><u>browseable:</u> Diretório navegável? yes | no</p>
+      <p><u>writeable:</u> Diretório com parmissão de escrita no compartilhamento? yes | no</p>
+      <p><u>validusers:</u> Usuários com permissão para acessar o compartilhamento.</p>
+      <p><u>@grupo</u> e <u>nomeDoUsuario</u> são opções possíveis.</p></br>
+
+      <section id="testar-parametros">
+        <h4>3.2. Testar Parâmetros do smb.conf</h4>
+        <pre><code class="terminal">$ testparm</code></pre></br>
+      </section>
+      
+      <section id="iniciar-servico">
+        <h4>3.3. Iniciar / Parar serviço</h4>
+        <pre><code class="terminal">$ sudo service status | start | restart | stop smbd</code></pre></br>
+      </section>
+
+      <section id="criacao-do-diretorio">
+        <h4>3.4. Criação do Diretório Compartilhado Compartilhados</h4>
+        <p>É necessário que seja criado o diretório no  local informado no smb.conf.</p>
+        <pre><code class="terminal">
+          $ sudo mkdir /home/share/myShare
+          $ sudo chmod o+w /home/share/myShare
+        </code></pre>
+      </section>
+      </br>
+
+      <section id="criacao-do-usuario-linux-e-samba"></section>
+      <h4>3.5. Criação de usuário Linux e Samba</h4>
+      <p>É preciso adicionar o usuário ao ambiente  linux, para depois atribuir uma senha SMB para ele.</p>
+      <pre><code class="terminal">
+        $ sudo useradd -m nomeDoUsuario
+        $ sudo smbpasswd -a nomeDoUsuario
+      </code></pre>
+
+      <p><u>-m:</u> cria a home folder do usuário.</p>
+      <p><u>-a:</u> adiciona novo usuário SMB.</p></br>
+
+      <section id="criacao-de-grupo">
+        <h4>3.6. Criação de Grupo e Inclusão do Usuário no Grupo</h4>
+        <p>Se a segurança do compartilhamento for por grupo, é necessário criar o grupo e adicionar o   usuário desejado no grupo, para que ele tenha   acesso ao compartilhamento.</p>
+        <pre><code class="terminal">
+          $ sudo groupadd nomeDoGrupo
+          $ sudo gpasswd -a nomeDoUsuario nomeDoGrupo
+        </code></pre>
+      </section>
+
+      </br>
+
+      <section id="acesso-ao-compartilhamento">
+        <h3>4. Acesso ao Compartilhamento</h3>
+        <p>Demonstraremos o acesso ao compartilhamento  em uma estação Ubuntu 22.04 e em um cliente  Windows 10.</p>
+      </section></br>
+      
+      <section id="acesso-via-ubuntu">
+        <h4>4.1. Acesso via Ubuntu</h4>
+        <p>Abra seu gerenciador de arquivos.</p>
+        <p>Clique no canto inferior em "+ Outros   Locais".</p>
+        <p>Informe o seguinte no campo server:</p>
+        <pre><code class="terminal">smb:\\192.168.XX.XX</code></pre>
+        <img src="img/acesso-samba-no-ubuntu-img-1.png" width="400px" alt="">
+        <p>Imagem 1 - Janela com IP para conexão ao servidor Samba.</p></br></br>      
+  
+        <img src="img/acesso-samba-no-ubuntu-img-2.png"   width="400px" alt="">
+        <p>Imagem 2 - Imagem do compartilhamento disponível.</p></br></br>      
+  
+        <img src="img/acesso-samba-no-ubuntu-img-3.png"   width="400px" alt="">
+        <p>Imagem 3 - Autenticação com usuário e senha smb.</p></br></br>      
+  
+        <img src="img/acesso-samba-no-ubuntu-img-4.png"   width="400px" alt="">
+        <p>Imagem 4 - Diretório compartilhado recém criado.</p></br></br>
+  
+        <img src="img/acesso-samba-no-ubuntu-img-5.png"   width="400px" alt=""></br>
+        <p>Imagem 5 - Novos arquivos criados para testar as permissões.</p></br>
+      </section>
+
+      <section id="acesso-via-windows">
+        <h4>4.2. Acesso via Windows 10</h4>
+        <p>1º- Acesse o menu iniciar e digite:</p>
+        <pre><code class="terminal">\\192.168.X.XX</code></pre>
+        <img src="img/acesso-samba-no-w10-img-1.png" width="400px" alt="">
+        <p>Imagem 6 - Executação de comando com IP  para acessar o compartilhamento.</p></br>
+  
+        <p>2º- Autentique-se com as informações  fornecidas anteriormente, nomeDoUsuario e  senhaDoUsuario (senha SMB).</p></br>
+  
+        <img src="img/acesso-samba-no-w10-img-2.png" width="400px" alt="">
+        <p>Imagem 7 - Autenticação com usuário e senha.</p></br></br>
+  
+        <img src="img/acesso-samba-no-w10-img-3.png" alt="">
+        <p>Imagem 8 - Acesso ao compartilhamento com os arquivos criados no Ubuntu.</p></br></br>
+  
+        <img src="img/acesso-samba-no-w10-img-4.png" alt="">
+        <p>Imagem 9 - Novos arquivos criados para testar as permissões.</p></br>
+      </section>
+
+      <section id="mapeamento-do-drive">
+        <h4>4.3. Mapeamento do Drive</h4>
+        <p>Para mapear o compartilhamento no sistema basta clicar com o botão direito do mouse em <u>"Network > Map network drive..."</u></p>
+        <p>Informe como feito no <a href="#acesso-via-windows">passo 1</a>, \\192.168.X. XX seguido do nome e senha de acesso ao  compartilhamento (senha SMB).</p></br>
+  
+        <img src="img/mapeamento-img-1.jpg" width="400px" alt="">
+        <p>Imagem 10 - Mapeando o drive atráves do <i>file explorer</i>.</p></br></br>
+    
+        <img src="img/mapeamento-img-2.jpg" width="400px" alt="">
+        <p>Imagem 11 - Seleção de letra para o drive e configurações adicionais.</p></br>
+      </section>
+
+      <section id="remocao-samba">      
+        <h3>5. Remoção do Samba</h3>
+        <pre><code class="terminal">
+          $ sudo apt remove samba --purge
+        </code></pre>
+        <p><u>--purge:</u> remove os arquivos de configuração  do programa.</p>
+      </section>
+      </br>
+    </div>
+    <footer>
+      <p>HT.DOCS - Todos os direitos reservados &copy; 2023</p>
+    </footer>
+  </body>
+</html>
