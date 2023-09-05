@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    /* Medidas absolutas: cm, mm, in, px, pt, pc */
+    /* Centímetro, Mílimetro, Polegada, Píxel, Ponto e Pica */
+    /* Ponto e Pica são recomendáveis para impressão */
+    /* Medidas relativas: em, ex, rem, vw, vh, % */
+    /* altura m e altura x de uma fonte, altura referente a tamanho 
+    da fonte do body, viewport width, viewport height */
+    font-size: 16px; /* == 1em */
+}
+
